@@ -107,7 +107,7 @@ const Navbar = ({ openContactModal }) => {
           >
             <a
               href="#contact"
-              className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-6 py-2.5 rounded-sm font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-6 py-2.5 rounded-sm font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl mr-[1rem]"
             >
               Get Quote
             </a>
