@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 import Navbar from "../Navbar/Navbar";
 
-import "./hero.css"
+import "./hero.css";
 
 import {
   Zap,
@@ -16,8 +16,7 @@ import {
   Shield,
 } from "lucide-react";
 
-
-const Hero = () => {
+const Hero = ({ openContactModal }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentWord, setCurrentWord] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -112,7 +111,7 @@ const Hero = () => {
       </div>
 
       {/* Navbar */}
-      <Navbar />
+      <Navbar openContactModal={openContactModal} />
 
       {/* Main Content - Centered */}
       <div className="z-10 absolute max-w-6xl mx-auto px-6 sm:px-12 text-center">
@@ -152,7 +151,7 @@ const Hero = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <div className="flex flex-wrap justify-center gap-6 mb-8">
+          <div className="hidden md:flex flex-wrap justify-center gap-6 mb-8">
             {features.map((feature, index) => (
               <div
                 key={index}
@@ -173,19 +172,26 @@ const Hero = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <div className="flex gap-6 flex-wrap justify-center mb-16">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-6 mb-16">
+            {/* Explore Services Button */}
             <a
               href="#services"
-              className="group bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-10 py-[0.2rem] rounded-sm shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-3xl flex items-center gap-3 font-semibold text-lg relative overflow-hidden"
+              className="group relative bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-10 py-2 rounded-sm shadow-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-3xl flex flex-col sm:flex-row sm:items-center sm:justify-start justify-center items-center gap-3 font-semibold text-lg overflow-hidden text-center"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <Zap className="w-3 h-3" />
-              Explore Services
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+              {/* Icon and Text */}
+              <div className="flex items-center justify-center gap-2">
+                <Zap className="w-4 h-4" />
+                <span>Explore Services</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </div>
             </a>
+
+            {/* Get in Touch Button */}
             <a
               href="#contact"
-              className="border-2 border-white hover:bg-white hover:text-gray-900 text-white px-10 py-[0.2rem] rounded-sm transition-all duration-300 transform hover:scale-105 backdrop-blur-md bg-white/10 font-semibold text-lg shadow-lg hover:shadow-sm"
+              className="border-2 border-white hover:bg-white hover:text-gray-900 text-white px-10 py-2 rounded-sm transition-all duration-300 transform hover:scale-105 backdrop-blur-md bg-white/10 font-semibold text-lg shadow-lg hover:shadow-sm"
             >
               Get in Touch
             </a>
@@ -198,17 +204,14 @@ const Hero = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <div className="flex flex-wrap justify-center gap-8 mb-16">
+          <div className="hidden md:flex flex-wrap justify-center gap-8 mb-16">
             <div className="text-center group">
               <div className="text-3xl font-bold text-green-400 mb-2 group-hover:scale-110 transition-transform">
                 500+
               </div>
               <div className="text-gray-400 text-sm">Projects Completed</div>
             </div>
-            {/* <div className="text-center group">
-              <div className="text-3xl font-bold text-green-400 mb-2 group-hover:scale-110 transition-transform">15+</div>
-              <div className="text-gray-400 text-sm">Years Experience</div>
-            </div> */}
+
             <div className="text-center group">
               <div className="text-3xl font-bold text-green-400 mb-2 group-hover:scale-110 transition-transform">
                 100%

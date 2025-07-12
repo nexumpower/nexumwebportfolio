@@ -16,7 +16,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 
-const About = () => {
+const About = ({ setOpenMissionModal }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [scrollY, setScrollY] = useState(0);
@@ -159,7 +159,7 @@ const About = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
+      <div className="relative z-10  mx-auto px-8 py-16">
         {/* Hero Section */}
         <div className="text-center mb-20">
           <div
@@ -234,9 +234,9 @@ const About = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-green-500/20 rounded-full">
+                {/* <div className="p-2 bg-green-500/20 rounded-full">
                   <Target className="w-6 h-6 text-green-400" />
-                </div>
+                </div> */}
                 <h2 className="text-3xl font-bold text-white">Our Mission</h2>
               </div>
               <p className="text-lg text-gray-300 leading-relaxed mb-6">
@@ -252,7 +252,12 @@ const About = () => {
                 mind that comes with superior engineering and service.
               </p>
               <div className="flex gap-4">
-                <button className="group bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-3 rounded-sm shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2 font-semibold">
+                <button
+                  className="group bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-3 rounded-sm shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2 font-semibold"
+                  onClick={() => {
+                    setOpenMissionModal(true);
+                  }}
+                >
                   <Zap className="w-4 h-4" />
                   Learn More
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -378,7 +383,6 @@ const About = () => {
         </div>
 
         {/* CTA Section */}
-        
       </div>
 
       {/* Floating Visual Elements */}
